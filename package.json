@@ -6,6 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js"
   },
+  "repository": "https://github.com/jaFerrazza/OSExample",
   "keywords": [
     "WebdriverIO",
     "OpenSaturday"
