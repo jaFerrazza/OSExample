@@ -1,0 +1,23 @@
+{
+  "name": "os_example",
+  "version": "1.0.0",
+  "description": "Open Saturday automation example",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js"
+  },
+  "keywords": [
+    "WebdriverIO",
+    "OpenSaturday"
+  ],
+  "author": "Jacopo",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/cli": "^5.16.13",
+    "@wdio/local-runner": "^5.16.13",
+    "@wdio/mocha-framework": "^5.16.13",
+    "@wdio/selenium-standalone-service": "^5.16.10",
+    "@wdio/spec-reporter": "^5.16.11",
+    "@wdio/sync": "^5.16.14"
+  }
+}
