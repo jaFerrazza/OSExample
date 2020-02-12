@@ -1,18 +1,23 @@
-const assert = require('assert')
 const config = require('../wdio.conf').config;
+const trivago = require("../pages/trivago_main");
+const searchResults = require("../pages/search_results");
 
-describe('Search for Open Saturday website in Google', () => {
-    it('should search for Open Saturday in Google', () => {
+describe('Search for a hotel Trivago, then click on View Deal for the searched hotel', () => {
+    it('should search for a hotel in Trivago', () => {
+        let  hotel = "The Victorian Inn";
+
         browser.url(config.baseUrl);
-        const searchEle = '[title = "Buscar"]'; 
-        $(searchEle).setValue('Open Saturday santo domingo');
-        $(searchEle).addValue('\uE006');
+        trivago.typeInData(hotel);
+        trivago.displayCalendar();
+        trivago.clickNextOnCalendar();
+        trivago.selectDates("2020-03-03", "2020-03-10");
+        trivago.pickRoomType(0);
+        trivago.clickSearchBtn();
+        trivago.areSearchResultsShowing(hotel);
     });
-    it('should open the Open Saturday website', () => {
-        const openSaturdayLink = 'h3=Open Saturday Conf';
-        $(openSaturdayLink).waitForDisplayed();
-        $(openSaturdayLink).click();
-        const openSaturdayTitle = browser.getTitle();
-        assert.strictEqual(openSaturdayTitle, 'Open Saturday Conf', `Title expected to be ${openSaturdayTitle}`);
+    it('should click in the View Deal button and validate it got to the right deal', () => {
+        searchResults.clickOnViewDealBtn();
+        browser.switchWindow("trivago > Expedia");
+        searchResults.assertIsOnTheRightPage();
     });
 })
