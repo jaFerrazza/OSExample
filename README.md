@@ -1,5 +1,4 @@
-# OSExample
-## Open Saturday automation example
+# Trivago Case Study
 
 ### How to run the test
 - Clone the project
